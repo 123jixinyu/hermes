@@ -11,7 +11,6 @@ func (dt *Flat) Name() string {
 // HTMLTemplate returns a Golang template that will generate an HTML email.
 func (dt *Flat) HTMLTemplate() string {
 	return `
-xxx111
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -300,7 +299,7 @@ xxx111
                 <!-- Body content -->
                 <tr>
                   <td class="content-cell">
-                    <h1>{{if .Email.Body.Title }}{{ .Email.Body.Title }}{{ else }}{{ .Email.Body.Greeting }} {{ .Email.Body.Name }},{{ end }}</h1>
+                    <p style="font-size:14px">{{if .Email.Body.Title }}{{ .Email.Body.Title }}{{ else }}{{ .Email.Body.Greeting }} {{ .Email.Body.Name }},{{ end }}</p>
                     {{ with .Email.Body.Intros }}
                         {{ if gt (len .) 0 }}
                           {{ range $line := . }}
@@ -440,12 +439,12 @@ xxx111
                     {{ with .Email.Body.Outros }} 
                         {{ if gt (len .) 0 }}
                           {{ range $line := . }}
-                            <p>{{ $line }}</p>
+                            <p style="font-size:12px">{{ $line }}</p>
                           {{ end }}
                         {{ end }}
                       {{ end }}
 
-                    <p>
+                    <p style="font-size:12px">
                       {{.Email.Body.Signature}},
                       <br />
                       {{.Hermes.Product.Name}}
