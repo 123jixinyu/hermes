@@ -303,7 +303,7 @@ func (dt *Flat) HTMLTemplate() string {
                     {{ with .Email.Body.Intros }}
                         {{ if gt (len .) 0 }}
                           {{ range $line := . }}
-                            <p>{{ $line }}</p>
+                            <p style="font-size:14px">{{ $line }}</p>
                           {{ end }}
                         {{ end }}
                     {{ end }}
@@ -377,7 +377,7 @@ func (dt *Flat) HTMLTemplate() string {
                       {{ with .Email.Body.Actions }}
                         {{ if gt (len .) 0 }}
                           {{ range $action := . }}
-                            <p>{{ $action.Instructions }}</p>
+                            <p style="font-size:13px">{{ $action.Instructions }}</p>
                             {{safe "<!--[if mso]>" }}
                             {{ if $action.Button.Text }}
                             <div style="margin: 30px auto">
